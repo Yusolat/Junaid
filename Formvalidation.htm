@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+// Define variable and set to empty value.
+$name = $email = $comment = $gender = $submit
+if (SERVER["REQUEST_METHOD"] == "POST") {
+    $name = test_input($_POST["name"]);
+    $email = test_input($_POST["email"]);
+    $comment = test_input($_POST["comment"]);
+    $gender = test_input($_POST["gender"]);
+    $submit = test_input($_POST["submit"]);
+}
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+    
+?>
+<h3>PHP form validation<h3>
+<form method = "post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+Name: <input type = "text" name = "name">
+Email: <input type = "text" name = "email">
+Comment: <textarea name = "comment" row = "15" col = "50"></textarea>
+Gender: <input type = "radio" name = "gender">
+
+</body>
+</html>
